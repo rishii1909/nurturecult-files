@@ -501,6 +501,7 @@
 		.hcard{
 			
 			width: 300px;
+			max-width: 100%;
 			cursor: pointer;
 			height: 200px;
 			border-radius: 10px;
@@ -516,8 +517,8 @@
 		}
 		.hcont{
 			background-color: rgba(0, 0, 0, 0.699);
-			min-width:300px;
-			max-width:300px;
+			min-width:200px;
+			max-width:200px;
 			height: 100%;
 			display: flex;
 			border-radius: 10px;
@@ -855,12 +856,12 @@
 	
 	<div  style="width:100%;display:flex;align-items:center;flex-flow:column;margin:0px;">
 		<div class="row" style = "padding:30px 0px;margin:0px;border-bottom:1px solid rgb(168, 168, 168);justify-content:center !important;align-content:center !important;display:flex;flex-flow:row wrap;">
-			<div class="col s12 m5" style="width:500px;display:flex;justify-content:center !important;flex-flow:column;margin:0px">
+			<div class="col s12 m5" style="max-width:500px;display:flex;justify-content:center !important;flex-flow:column;margin:0px">
 				<img style="padding:0px;width:90px;height:95px" alt="" src="covid.png">
 				
 				<h3 class="rentSafe" style="margin-top:10px;height: fit-content;">Learn Safe <br>During <span style="color:#F1C40F;">COVID-19</span></br>
 			</div>
-			<div class="col s12 m5" style="width:500px;justify-content:center;margin:0px" style="font-size: 18px !important;">
+			<div class="col s12 m5" style="max-width:500px;justify-content:center;margin:0px" style="font-size: 18px !important;">
 				<div class="rentSafePara" style="text-align:left;font-size:18px" >
 					The greatest lesson that COVID-19 can teach humanity is that we are all in this together. Life doesn’t get easier or more forgiving, we get stronger and more resilient
 				When the world is running down, you make the best of what's still around. The secret of crisis management is not good vs. bad, it's preventing the bad from getting worse.
@@ -1192,7 +1193,7 @@
 			<div class="dyninfo">
 				<div>
 					<div class="dynholder">
-						<div class="dynimg" style="background-image: url(gr3.jpg);"></div>
+						<div class="dynimg" style="background-image: url(gr3.jpg); "></div>
 					</div>
 				</div>
 				<div class="dynpara">Career-related advice (eg. CV building, public speaking)Free exclusive webinars having prominent speakers, free mentorship, personal updates on all our activities and virtual parties.</div>
@@ -1379,7 +1380,6 @@
 			<textarea  style="height: 100px;border-radius:5px;padding:5px"placeholder="Message"></textarea>
 			<input type="submit" class="search2" style="padding:10px;margin:20px;margin-bottom:0px;margin-left:100%;transform:translateX(-100%); width:fit-content;border:none">
 		</form>
-
 </div>
 	</div>
 	
@@ -1634,9 +1634,7 @@
 });
 	 </script>
 	 <script src="skrollr.js"></script>
-	 <script type="text/javascript">
-		var s = skrollr.init();
-		</script>
+	 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<!-- <script src="particles.min.js"></script> -->
 	<script>
