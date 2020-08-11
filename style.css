@@ -639,9 +639,12 @@ h3{
     .inputSpace{
         min-width: 100% !important;
     }
+    #nav11{
+        opacity: 0;
+    }
  }
 
- 
-
-
+.inputSpace *{
+    transition: 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
  

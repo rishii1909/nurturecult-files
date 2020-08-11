@@ -63,6 +63,7 @@
 			font-family: proxima-nova,sans-serif;
 			overflow-y: scroll !important ;
 			-webkit-overflow-scrolling: touch;
+			position: absolute;
 		}
 		body *{
 			transition: 0.7s cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -385,6 +386,7 @@
 			text-align: center;
 			font-size: 15px;
 			color: white;
+			cursor: pointer;
 			width: fit-content;
 			display: flex;
 			bottom: 0px;
@@ -1373,12 +1375,14 @@
 					</div>
 				</div>
 			</div>
-		<form class="inputSpace" style="display: flex;min-width:400px;max-width:100%;margin:10px auto;">
-			<input placeholder="Name" >
-			<input placeholder="E-mail" >
-			<input style="margin-bottom: 10px;" placeholder="Subject" >
-			<textarea  style="height: 100px;border-radius:5px;padding:5px"placeholder="Message"></textarea>
-			<input type="submit" class="search2" style="padding:10px;margin:20px;margin-bottom:0px;margin-left:100%;transform:translateX(-100%); width:fit-content;border:none">
+		<form id="form" class="inputSpace" style="display: flex;min-width:400px;max-width:100%;margin:10px auto;">
+			<input id="namefield" required name="entry.37352416" placeholder="Name" >
+			<input id="emailfield" required name="entry.1878316948" placeholder="E-mail" >
+			<input id="subjectfield" required name="entry.1454958422" style="margin-bottom: 10px;" placeholder="Subject" >
+			<textarea id="messagefield" required name="entry.391054700" style="height: 100px;border-radius:5px;padding:5px"placeholder="Message"></textarea>
+			<div id="validaterror" style="color: rgb(204, 0, 0);opacity:0;margin:5px">Please fill the highlighted fields.</div>
+			<div id="success" style="color: green;opacity:0;display:none;margin:5px">Thank you! We will contact you soon.</div>
+			<div  onclick="contactsubmit()" class="search2" style="padding:5px 10px;margin:20px;margin-top:5px;margin-bottom:0px;margin-left:100%;transform:translateX(-100%); min-width:fit-content;border:none">Submit</div>
 		</form>
 </div>
 	</div>
@@ -1841,6 +1845,61 @@ function videoset(){
 
 
 		getneww();getnewww();videoset();get51();getnew();get4();get11();get41();get42();Switch(1);
+	</script>
+	<script>
+		function contactsubmit(){
+			var field1 = $("#namefield").val();
+            var field2 = $("#emailfield").val();
+            var field3 = $("#subjectfield").val();
+			var field4 = $("textarea#messagefield").val();
+			if(field1 == ""){
+				document.getElementById("namefield").style.borderBottomColor = "red "
+				document.getElementById("validaterror").style.opacity = "1"
+			}else{
+				document.getElementById("namefield").style.borderBottomColor = "lightgray"
+			}
+			if(field2 == ""){
+				document.getElementById("emailfield").style.borderBottomColor = "red "
+			}else{
+				document.getElementById("emailfield").style.borderBottomColor = "lightgray "
+			}
+			if(field3 == ""){
+				document.getElementById("subjectfield").style.borderBottomColor = "red "
+			}else{
+				document.getElementById("subjectfield").style.borderBottomColor = "lightgray"
+			}
+			if(field4 == ""){
+				document.getElementById("messagefield").style.border = "red 1px solid "
+			}else{
+				document.getElementById("messagefield").style.border = "lightgray 1px solid"
+			}
+			if(field1 !== "" && field2 !== "" && field3 !== "" && field4 !== ""){
+				
+		$.ajax({
+			
+			url: "https://docs.google.com/forms/d/e/1FAIpQLScp-a4yF2OC4cxtzlBxmPbqvxgiOLvcP2WVe18rmrW6_aXKUA/formResponse?",
+			data: {"entry.37352416": field1, "entry.1878316948": field2, "entry.1454958422": field3, "entry.391054700": field4},
+			type: "POST",
+			dataType: "xml",
+			success: function(d)
+			{
+			},
+			error: function(x, y, z)
+				{
+
+					
+					document.getElementById("validaterror").style.display = "none "
+					document.getElementById("success").style.display = "flex "
+					document.getElementById("success").style.opacity = "1 "
+					document.getElementById("namefield").value = ""
+					document.getElementById("emailfield").value = ""
+					document.getElementById("subjectfield").value = ""
+					document.getElementById("messagefield").value = ""
+				}
+		});
+		return false;
+	}
+	}
 	</script>
 	<script src="common1.js"></script>
 	</body>
